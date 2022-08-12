@@ -29,3 +29,12 @@ input{
     cursor: pointer;
     background-color: red;
 }
+
+
+.poke-heading{
+    text-decoration: none;
+    color: white;
+}
+.poke-heading:hover{
+    color: rgb(211, 157, 157);
+}

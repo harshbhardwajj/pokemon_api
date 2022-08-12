@@ -37,8 +37,10 @@ function App() {
   }, []);
 
   const searchPokemon = () => {
-    Axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonSearch}`).then(
-      (response) => {
+    Axios.get(
+      `https://pokeapi.co/api/v2/pokemon/${pokemonSearch.toLowerCase()}`
+    )
+      .then((response) => {
         setPokemonS2({
           name: pokemonSearch,
           species: response.data.species.name,
@@ -49,8 +51,10 @@ function App() {
           type: response.data.types[0].type.name,
         });
         setPokemonChosen(true);
-      }
-    );
+      })
+      .catch(() => {
+        alert("error searching for pokemon");
+      });
   };
 
   const next = async () => {
@@ -91,47 +95,56 @@ function App() {
         ) : (
           <>
             <div>
-              <input
-                placeholder="Search pokemon here:"
-                type="text"
-                onChange={(event) => {
-                  setPokemonSearch(event.target.value);
-                }}
-              />
-              <button onClick={searchPokemon} className="search-btn">
-                Search
-              </button>
+              <div className="poke-search">
+                <input
+                  placeholder="Search pokémon here:"
+                  type="text"
+                  onChange={(event) => {
+                    setPokemonSearch(event.target.value);
+                  }}
+                />
+                <button onClick={searchPokemon} className="search-btn">
+                  Search
+                </button>
+              </div>
               <div className="displaySection">
                 {!pokemonChosen ? (
-                  <h1>^ Please choose a pokemon.</h1>
+                  <h1>^ Please choose a pokémon.</h1>
                 ) : (
                   <>
-                  <h1>{pokemonSearch}</h1>
-                  <img src={pokemonS2.img}/>
-                  <h3>Species: {pokemonS2.species}</h3>
-                  <h3>Type: {pokemonS2.type}</h3>
-                  <h4>Hp: {pokemonS2.hp}</h4>
-                  <h4>Attack: {pokemonS2.attack}</h4>
-                  <h4>Defence: {pokemonS2.defence}</h4>
+                    <h1>{pokemonSearch}</h1>
+                    <img src={pokemonS2.img} />
+                    <h3>Species: {pokemonS2.species}</h3>
+                    <h3>Type: {pokemonS2.type}</h3>
+                    <h4>Hp: {pokemonS2.hp}</h4>
+                    <h4>Attack: {pokemonS2.attack}</h4>
+                    <h4>Defence: {pokemonS2.defence}</h4>
                   </>
                 )}
-                
               </div>
             </div>
+            <div>
             <div className="btn">
               <button onClick={prev}>Prev</button>
+            </div>
+            <div className="btn-next">
               <button onClick={next}>Next</button>
             </div>
-            <div className="grid-container">
+            </div>
+            <div className="pokeflex-container">
               {pokemonData.map((pokemon, i) => {
                 return <Card key={i} pokemon={pokemon} />;
               })}
             </div>
+            <div>
             <div className="btn">
               <button onClick={prev}>Prev</button>
-
+            </div>
+            <div className="btn-next">
               <button onClick={next}>Next</button>
             </div>
+            </div>
+            
           </>
         )}
       </div>

@@ -5,7 +5,7 @@ function Navbar() {
     return (
         <div className="Navbar">
             <div className='titleSection'>
-                <h1>Pokemon Stats</h1>
+                <a className='poke-heading' href='/'><h1>Pokémon Stats</h1></a>
                  {/* <input  placeholder='Search pokemon here:' type="text"/>
                  <button className="search-btn" >Search</button> */}
             </div>

@@ -3,15 +3,23 @@
   text-align: center;
 }
 .btn{
-
+  
+  display:inline-block;
   margin-left: 45%;
-  padding: 2px;
-  transition-duration: 0.4s;
+  margin-bottom: 4px;
+  
+  
 }
 .btn:hover {
   background-color: red; /* Green */
   color: white;
 }
+.btn-next{
+  
+  display:inline-block;
+  
+}
+
 
 .displaySection{
   display: flex;
@@ -61,4 +69,18 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.pokeflex-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.poke-search{
+  display: flex;
+  justify-content: center;
+  margin: .5rem;
 }
