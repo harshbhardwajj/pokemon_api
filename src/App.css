@@ -1,5 +1,31 @@
 .App {
+  display: flex;
   text-align: center;
+}
+.btn{
+
+  margin-left: 45%;
+  padding: 2px;
+  transition-duration: 0.4s;
+}
+.btn:hover {
+  background-color: red; /* Green */
+  color: white;
+}
+
+.displaySection{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.displaySection h4, h3{
+  margin: 2px;
+
+}
+
+.displaySection img{
+  width: 150px;
 }
 
 .App-logo {
@@ -16,8 +42,8 @@
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  display: flex; 
+   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
